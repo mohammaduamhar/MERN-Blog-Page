@@ -65,7 +65,6 @@ export const signin = async (req, res, next) => {
 
 export const google = async (req, res, next) => {
   const { name, email, photo } = req.body;
-
   try {
     let user = await User.findOne({ email });
 
@@ -91,7 +90,7 @@ export const google = async (req, res, next) => {
           Math.random().toString(9).slice(-4),
         email,
         password: hashedPassword,
-        profilePicture: photo,
+        profilePicture:photo,
       });
       await newUser.save();
       const token = jwt.sign({
