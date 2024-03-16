@@ -1,19 +1,18 @@
-import { Alert, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "flowbite-react";
+import { Button, Alert, Label, Spinner, TextInput } from "flowbite-react";
 import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
+import { signInStart, signInSuccess, signInFailure } from "../redux/user/userSlice";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { loading, error: errorMessage } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
-
   const handleChange = (e) => {
-    setErrorMessage(null);
+    dispatch(signInFailure(null));
     setFormData({
       ...formData,
       [e.target.id]: e.target.value.trim(),
@@ -22,27 +21,24 @@ export default function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    if ( !formData.email || !formData.password) {
-      setErrorMessage("All fields are required");
+
+    if (!formData.email || !formData.password) {
+      dispatch(signInFailure("All fields are required"));
       return;
     }
-  
+
     try {
-      setLoading(true)
+      dispatch(signInStart());
       const res = await axios.post("api/auth/signin", formData, {
         headers: { "Content-Type": "application/json" },
-      });  
+      });
 
-      setLoading(false)
-      navigate('/')
-     
+      dispatch(signInSuccess(res));
+      navigate('/');
     } catch (error) {
-      setErrorMessage(error.response.data.message)   
-      setLoading(false) 
+      dispatch(signInFailure(error.response.data.message));
     }
   }
-  
 
   return (
     <div className="min-h-screen mt-20">
@@ -64,7 +60,6 @@ export default function SignIn() {
         {/* right */}
         <div className="flex-1">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-           
             <div className="">
               <Label value="Email" />
               <TextInput
@@ -85,23 +80,21 @@ export default function SignIn() {
                 onChange={handleChange}
               />
             </div>
-            {
-              errorMessage && <Alert className="mt-2" color='failure'>{errorMessage} </Alert>
-
-            }
+            {errorMessage && <Alert className="mt-2" color='failure'>{errorMessage} </Alert>}
             <Button
               gradientDuoTone="purpleToPink"
               className="w-full"
-              type="sumbit"
+              type="submit"
               disabled={loading}
             >
-             {
-              loading ? (<> <Spinner color="white" size="sm" />
-              <span className="pl-2">Loading...</span></>
-               
-              ) : "Sign Up"
-             }
-            
+              {loading ? (
+                <>
+                  <Spinner color="white" size="sm" />
+                  <span className="pl-2">Loading...</span>
+                </>
+              ) : (
+                "Sign In"
+              )}
             </Button>
           </form>
           <div className=" flex gap-2 text-sm mt-5">
