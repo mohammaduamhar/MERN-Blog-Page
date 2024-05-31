@@ -111,7 +111,7 @@ export default function DashProfile() {
             />
           )}
           <img
-            src={imageFileUrl || currentUser.profilePicture}
+            src={imageFileUrl || currentUser.profilePicture || currentUser.data.profilePicture}
             alt="user"
             className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${
               imageFileUploadProgress &&
@@ -125,13 +125,13 @@ export default function DashProfile() {
           type='text'
           id='username'
           placeholder='username'
-          defaultValue={currentUser.username}
+          defaultValue={currentUser.username || currentUser.data.username}
         />
         <TextInput
           type='email'
           id='email'
           placeholder='email'
-          defaultValue={currentUser.email}
+          defaultValue={currentUser.email || currentUser.data.email}
         />
         <TextInput
           type='password'
