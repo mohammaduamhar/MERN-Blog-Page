@@ -68,6 +68,7 @@ export const google = async (req, res, next) => {
           id: user._id,
           username: user.username,
           email: user.email,
+          isAdmin: user.isAdmin,
         },
         process.env.JWT_SECRET
       );
