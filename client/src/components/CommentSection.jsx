@@ -24,7 +24,7 @@ export default function CommentSection({postId}) {
         console.log('Submitting comment:', {
             content: comment,
             postId,
-            userId: currentUser.data._id,
+            userId: currentUser._id,
         });
     
         try {
