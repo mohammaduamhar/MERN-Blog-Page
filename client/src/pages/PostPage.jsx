@@ -2,6 +2,7 @@ import { Button, Spinner } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import CommentSection from '../components/CommentSection';
+import PostCard from '../components/PostCard';
 
 export default function PostPage() {
   const { postSlug } = useParams();
@@ -90,11 +91,13 @@ export default function PostPage() {
       <CommentSection postId={post._id} />
 
       <div className='flex flex-col justify-center items-center mb-5'>
-        <h1 className='text-xl mt-5'>Recent articles</h1>
-        <div className='flex flex-wrap gap-5 mt-5 justify-center'>
-          
-        </div>
-      </div>
+    <h1 className='text-xl mt-5'>Recent articles</h1>
+    <div className='flex flex-wrap gap-5 mt-5 justify-center'>
+      {recentPosts && recentPosts.map((post) => (
+        <PostCard key={post._id} post={post} />
+      ))}
+    </div>
+</div>
     </main>
   );
 }
