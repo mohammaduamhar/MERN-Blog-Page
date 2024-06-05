@@ -13,6 +13,7 @@ import UpdatePost from './pages/UpdatePost';
 import AdminOnlyPrivateRoute from "./components/AdminOnlyPrivateRoute";
 import PostPage from './pages/PostPage';
 import ScrollToTop from './components/ScrollToTop';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/projects" element={<Projects />} />
         <Route path='/post/:postSlug' element={<PostPage />} />
+        <Route path='/search' element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
