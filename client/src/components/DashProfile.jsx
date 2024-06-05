@@ -272,10 +272,6 @@ export default function DashProfile() {
         <Alert color='failure' className='mt-5'>
           {updateUserError}
         </Alert>
-      )}{error && (
-        <Alert color='failure' className='mt-5'>
-          {error}
-        </Alert>
       )}
       <Modal
         show={showModal}

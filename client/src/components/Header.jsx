@@ -60,13 +60,13 @@ export default function Header() {
         <TextInput
         type="text"
         placeholder="Search"
-        rightIcon={AiOutlineSearch}
+        rightIcon={AiOutlineSearch }
         className="hidden lg:inline"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
          />
       </form>
-      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
+      <Button onClick={handleSubmit} className="w-12 h-10 lg:hidden" color="gray" pill>
     <AiOutlineSearch />
       </Button>
 
@@ -115,11 +115,7 @@ export default function Header() {
                     About
                 </Link>
             </Navbar.Link>
-            <Navbar.Link active={path === "/projects"} as={'div'}>
-                <Link to='/projects'>
-                    Projects
-                </Link>
-            </Navbar.Link>
+            
         </Navbar.Collapse>
     </Navbar>
   );

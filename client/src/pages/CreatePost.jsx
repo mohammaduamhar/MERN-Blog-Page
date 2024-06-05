@@ -109,6 +109,7 @@ export default function CreatePost() {
             <option value='Php'>Php</option>
             <option value='reactjs'>React.js</option>
             <option value='Spring Boot'>Spring Boot</option>
+            <option value='Travel'>Travel</option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>

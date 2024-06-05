@@ -86,7 +86,7 @@ export default function UpdatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`/api/post/updatepost/${formData._id}/${currentUser._id}`, {
+      const res = await fetch(`/api/post/updatepost/${postId}/${currentUser._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -129,10 +129,14 @@ export default function UpdatePost() {
             }
             value={formData.category}
           >
-            <option value='uncategorized'>Select a category</option>
+             <option value='uncategorized'>Select a category</option>
             <option value='javascript'>JavaScript</option>
+            <option value='Java'>Java</option>
+            <option value='Python'>Python</option>
+            <option value='Php'>Php</option>
             <option value='reactjs'>React.js</option>
-            <option value='nextjs'>Next.js</option>
+            <option value='Spring Boot'>Spring Boot</option>
+            <option value='Travel'>Travel</option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>

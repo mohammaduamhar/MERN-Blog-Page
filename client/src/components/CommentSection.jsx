@@ -24,7 +24,7 @@ export default function CommentSection({postId}) {
         console.log('Submitting comment:', {
             content: comment,
             postId,
-            userId: currentUser._id,
+            userId: currentUser.data._id,
         });
     
         try {
@@ -36,7 +36,7 @@ export default function CommentSection({postId}) {
                 body: JSON.stringify({
                     content: comment,
                     postId,
-                    userId: currentUser._id,
+                    userId: (currentUser.data._id),
                 }),
             });
             const data = await res.json();
