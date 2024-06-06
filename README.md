@@ -18,6 +18,7 @@ This project is a full-featured blog platform built using the MERN stack (MongoD
 - **Database**: MongoDB
 - **Authentication**: JWT, Firebase for Google OAuth
 
-https://mern-blog-1qm9.onrender.com/
+## Live Demo
+Check out the live demo: MERN Blog Platform
     
     
