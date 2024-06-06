@@ -3,6 +3,8 @@
 ## Overview
 This project is a full-featured blog platform built using the MERN stack (MongoDB, Express, React, Node.js) with Redux for state management. The application includes JWT authentication, Google OAuth via Firebase, and various features for both users and admins.
 
+**Live Demo:** [MERN Blog Platform](https://mern-blog-1qm9.onrender.com/)
+
 ## Features
 - **User Authentication**: Sign up and log in using email/password or Google OAuth.
 - **View Posts**: Users can view all posts without needing to sign up.
@@ -18,7 +20,20 @@ This project is a full-featured blog platform built using the MERN stack (MongoD
 - **Database**: MongoDB
 - **Authentication**: JWT, Firebase for Google OAuth
 
-## Live Demo
-Check out the live demo: MERN Blog Platform
-    
+## Usage
+
+### User Features
+- View all posts without signing up.
+- Sign up or log in to comment on posts.
+- Update profile details and profile picture.
+- Like comments.
+- Delete their account.
+
+### Admin Features
+- Access the admin dashboard.
+- Manage users: delete users.
+- Manage posts: edit, delete, update posts.
+- Manage comments: edit, delete, update comments.
+
+
     
