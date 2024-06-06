@@ -18,16 +18,6 @@ This project is a full-featured blog platform built using the MERN stack (MongoD
 - **Database**: MongoDB
 - **Authentication**: JWT, Firebase for Google OAuth
 
-## Setup Instructions
-
-### Prerequisites
-- Node.js
-- MongoDB
-- Firebase project setup for Google OAuth
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/mern-blog-platform.git
-   cd mern-blog-platform
+https://mern-blog-1qm9.onrender.com/
+    
+    
