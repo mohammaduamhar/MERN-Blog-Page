@@ -35,5 +35,8 @@ This project is a full-featured blog platform built using the MERN stack (MongoD
 - Manage posts: edit, delete, update posts.
 - Manage comments: edit, delete, update comments.
 
+## Admin DashBoard
+
+![image](https://github.com/mohammaduamhar/MERN-Blog-Page/assets/111201065/938fab14-b80a-4d52-8ba9-08ae0b5c1a1e)
 
     
