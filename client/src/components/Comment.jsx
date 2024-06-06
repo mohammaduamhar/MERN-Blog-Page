@@ -9,6 +9,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(comment.content);
   const { currentUser } = useSelector((state) => state.user);
+  const userId = (currentUser && currentUser.data && currentUser.data._id) || (currentUser && currentUser._id);
 
   useEffect(() => {
     const getUser = async () => {
@@ -126,7 +127,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                     (comment.numberOfLikes === 1 ? 'like' : 'likes')}
               </p>
               {currentUser &&
-                (currentUser._id === comment.userId || currentUser.isAdmin) && (
+                (userId === comment.userId || currentUser.isAdmin) && (
                   <>
                     <button
                       type='button'

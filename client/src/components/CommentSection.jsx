@@ -7,6 +7,7 @@ import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 export default function CommentSection({postId}) {
     const { currentUser } = useSelector((state) => state.user);
+    const userId = (currentUser && currentUser.data && currentUser.data._id) || (currentUser && currentUser._id);
     const [comment, setComment] = useState('');
     const [commentError, setCommentError] = useState(null);
     const [comments, setComments] = useState([]);
@@ -20,11 +21,13 @@ export default function CommentSection({postId}) {
             setCommentError("Comment is too long");
             return;
         }
+
+
     
         console.log('Submitting comment:', {
             content: comment,
             postId,
-            userId: currentUser.data._id,
+            userId: userId,
         });
     
         try {
@@ -34,10 +37,11 @@ export default function CommentSection({postId}) {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    content: comment,
-                    postId,
-                    userId: (currentUser.data._id),
-                }),
+                  content: comment,
+                  postId: postId,
+                  userId: userId,
+              }),
+              
             });
             const data = await res.json();
             if (res.ok) {
