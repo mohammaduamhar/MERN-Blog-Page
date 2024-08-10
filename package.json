@@ -5,10 +5,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon api/index.js",
-    "start": "node api/index.js",
-    "build": "npm install && npm install --prefix client && npm run build --prefix client"
-  },
+  "dev": "concurrently \"nodemon api/index.js\" \"npm run dev --prefix client\"",
+  "start": "concurrently \"npm run start --prefix api\" \"npm run preview --prefix client\"",
+  "build": "npm install && npm install --prefix client && npm run build --prefix client"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
